@@ -1,0 +1,253 @@
+[{
+    "_id": "2",
+    "name": "Sour Patch Kids Candy",
+    "description": "Small chewy sour candies that resemble cute children, bursting with colorful, tangy sweetness. Perfect for snacking or sharing at parties!",
+    "ratings": [
+      5,
+      5,
+      4,
+      4,
+      3,
+      2,
+      5,
+      4,
+      5
+    ],
+    "reviews": [
+      "I love the shapes!",
+      "So many colors; my kids adore them.",
+      "Mmm, sour and sweet!",
+      "My favorite chewy candy!"
+    ],
+    "price": 2.99,
+    "quantity": 200,
+    "category": "Food",
+    "image": "sourpatch.png"
+  },
+  {
+    "_id": "9",
+    "name": "Oil Diffuser",
+    "description": "A stylish, compact diffuser for aromatherapy. Add your favorite essential oils to create a calming and aromatic atmosphere.",
+    "ratings": [
+      5,
+      5,
+      5,
+      4,
+      5
+    ],
+    "reviews": [
+      "Very relaxing!",
+      "My home smells amazing.",
+      "Easy to use.",
+      "Quiet operation."
+    ],
+    "price": 24.99,
+    "quantity": 60,
+    "category": "Home",
+    "image": "oildiff.jpg"
+  },
+  {
+    "_id": "10",
+    "name": "Weighted Blanket",
+    "description": "Soft and heavy blanket designed to promote relaxation and improve sleep quality. Perfect for stress relief and cozy nights.",
+    "ratings": [
+      5,
+      4,
+      5,
+      5,
+      5,
+      3
+    ],
+    "reviews": [
+      "Helps me sleep better!",
+      "Very cozy.",
+      "A bit heavy but worth it.",
+      "High quality!"
+    ],
+    "price": 49.99,
+    "quantity": 70,
+    "category": "Home",
+    "image": "blanket.png"
+  },
+  {
+    "_id": "17",
+    "name": "Electric Pressure Cooker",
+    "description": "Multi-functional electric pressure cooker for fast, one-pot meals. Features slow-cook, sauté, and steam options for versatile cooking.",
+    "ratings": [
+      5,
+      4,
+      5,
+      4,
+      5,
+      5,
+      4,
+      4,
+      5,
+      5
+    ],
+    "reviews": [
+      "Makes cooking so much faster!",
+      "Love the one-pot meals; easy cleanup.",
+      "A must-have for busy families.",
+      "Versatile and easy to use.",
+      "Replaced several kitchen appliances with this."
+    ],
+    "price": 79.99,
+    "quantity": 60,
+    "category": "Home",
+    "image": "pressurecook.png"
+  },
+  {
+    "_id": "18",
+    "name": "Gaming Mouse with RGB Lighting",
+    "description": "High-performance gaming mouse with customizable RGB lighting, adjustable DPI settings, and ergonomic design for ultimate comfort.",
+    "ratings": [
+      5,
+      4,
+      5,
+      5,
+      5,
+      4,
+      5,
+      5,
+      5,
+      4
+    ],
+    "reviews": [
+      "The RGB lighting is so cool!",
+      "Feels great in the hand; very responsive.",
+      "Love the customization options.",
+      "Great mouse for gaming!",
+      "Slightly heavy but very durable."
+    ],
+    "price": 49.99,
+    "quantity": 50,
+    "category": "Electronics",
+    "image": "gamingmouse.png"
+  },
+  {
+    "_id": "7",
+    "name": "Instant Polaroid Camera",
+    "description": "Retro-style camera for instant photo printing. Perfect for capturing memories at parties, vacations, and special events.",
+    "ratings": [
+      5,
+      4,
+      4,
+      3,
+      5,
+      5
+    ],
+    "reviews": [
+      "Great for parties!",
+      "Love the vintage feel.",
+      "Film is a bit expensive.",
+      "Photos are cute and memorable."
+    ],
+    "price": 79.99,
+    "quantity": 40,
+    "category": "Electronics",
+    "image": "polaroid.jpg"
+  },
+  {
+    "_id": "5",
+    "name": "LEGO Classic Bricks Set",
+    "description": "A box full of classic LEGO bricks in various colors and shapes, perfect for builders of all ages.",
+    "ratings": [
+      5,
+      5,
+      5,
+      4,
+      5,
+      5
+    ],
+    "reviews": [
+      "Classic fun for all ages.",
+      "Encourages creativity.",
+      "A little pricey but lots of pieces.",
+      "High quality as always with LEGO."
+    ],
+    "price": 19.99,
+    "quantity": 80,
+    "category": "Toys",
+    "image": "legoset.jpg"
+  },
+  {
+    "_id": "22",
+    "name": "Robot Vacuum Cleaner",
+    "description": "An intelligent, self-charging robot vacuum cleaner that sweeps and vacuums floors with minimal effort.",
+    "ratings": [
+      5,
+      5,
+      4,
+      5,
+      4,
+      4,
+      5,
+      5,
+      5,
+      5
+    ],
+    "reviews": [
+      "Keeps my floors clean without any effort!",
+      "Navigates around furniture really well.",
+      "A lifesaver for pet owners.",
+      "Great battery life, covers my whole home.",
+      "A bit noisy, but very effective."
+    ],
+    "price": 249.99,
+    "quantity": 30,
+    "category": "Home",
+    "image": "robotvac.jpg"
+  },
+  {
+    "_id": "4",
+    "name": "Kinetic Sand",
+    "description": "Magic sand that sticks to itself, fun to shape and mold without making a mess. Great for kids and adults alike!",
+    "ratings": [
+      5,
+      5,
+      4,
+      5,
+      4,
+      3,
+      5
+    ],
+    "reviews": [
+      "Kids love it!",
+      "Feels amazing and relaxing.",
+      "Great for sensory play.",
+      "Not as much sand as I expected."
+    ],
+    "price": 14.99,
+    "quantity": 100,
+    "category": "Toys",
+    "image": "kineticsand.jpg"
+  },
+  {
+    "_id": "13",
+    "name": "Wireless Noise-Canceling Headphones",
+    "description": "Premium wireless over-ear headphones with advanced noise-canceling technology for immersive listening.",
+    "ratings": [
+      5,
+      5,
+      4,
+      5,
+      5,
+      4,
+      3,
+      5,
+      5,
+      4
+    ],
+    "reviews": [
+      "Amazing sound quality, great for flights!",
+      "Blocks out noise completely.",
+      "Battery life lasts all day.",
+      "The ear cushions are super comfortable.",
+      "Pricey, but worth every penny."
+    ],
+    "price": 249.99,
+    "quantity": 200,
+    "category": "Electronics",
+    "image": "wirelessheadphone.jpg"
+  }]
