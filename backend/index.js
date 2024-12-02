@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5173;
 const mongoose = require('mongoose');
 require('dotenv').config();
 const cors = require('cors');
@@ -16,7 +16,7 @@ app.use(cors({
 app.use('/api/products', require('./src/products/Products.routes'));
 
 async function main() {
-  await mongoose.connect('mongodb+srv://fahad20032012:smartbird@products.hvj8k.mongodb.net/?retryWrites=true&w=majority&appName=products');
+  await mongoose.connect('mongodb+srv://fahad20032012:smartbird@products.hvj8k.mongodb.net/shop?retryWrites=true&w=majority');
   console.log("Mongodb connected");
 }
 
