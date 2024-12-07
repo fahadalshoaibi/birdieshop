@@ -3,6 +3,7 @@ const categories = ["Choose a category", "Electronics", "Toys", "Home", "Food", 
 import ProductCards from '../products/productCards'
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -13,14 +14,17 @@ import 'swiper/css/navigation';
 // import required modules
 import { Pagination } from 'swiper/modules';
 import { Navigation } from 'swiper/modules';
+import  productAPI  from './features/product/productAPI';
+import { useFetchProductsQuery } from './features/product/productAPI';
+
+
+
 
 const BestSellers = () => {
-    const [products, setProducts]=useState([]) 
+    
     const [selectedCategory, setSelectedCategory] = useState("Choose a category")
-    useEffect(()=>{
-        fetch("products.json").then(res=>res.json())
-        .then((data)=>setProducts(data))
-    },[])
+    const {data: products = []} = useFetchProductsQuery()
+    console.log(products)
     const filteredProducts = selectedCategory === "Choose a category" ? products : products.filter(product=>product.category === selectedCategory)
     console.log(filteredProducts)
   return (

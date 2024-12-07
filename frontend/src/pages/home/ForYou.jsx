@@ -7,7 +7,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
+import  productAPI  from './features/product/productAPI';
+import { useFetchProductsQuery } from './features/product/productAPI';
 
 
 // import required modules
@@ -15,12 +16,8 @@ import { Pagination } from 'swiper/modules';
 import { Navigation } from 'swiper/modules';
 
 const ForYou = () => {
-    const [products, setProducts]=useState([]) 
-    
-    useEffect(()=>{
-        fetch("products.json").then(res=>res.json())
-        .then((data)=>setProducts(data))
-    },[])
+  const {data: products = []} = useFetchProductsQuery()
+  console.log(products)
   return (
     <div>
       <h2 className='text-3xl font-semibold mb-6'>
