@@ -5,6 +5,7 @@ import Login from '../components/Login';
 import Register from '../components/Register';
 import Cart from '../pages/products/Cart';
 import Checkout from '../pages/products/Checkout';
+import SingleProd from '../pages/products/SingleProd';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path : "/checkout",
         element : <Checkout/>,
+      },
+      {
+        path : "/products/:id",
+        element : <SingleProd/>,
       }
     ],
   },
