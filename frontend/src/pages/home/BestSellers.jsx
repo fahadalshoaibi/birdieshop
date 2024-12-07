@@ -14,8 +14,7 @@ import 'swiper/css/navigation';
 // import required modules
 import { Pagination } from 'swiper/modules';
 import { Navigation } from 'swiper/modules';
-import  productAPI  from './features/product/productAPI';
-import { useFetchProductsQuery } from './features/product/productAPI';
+import { useFetchProductsQuery } from '../../redux/features/products/productAPI';
 
 
 

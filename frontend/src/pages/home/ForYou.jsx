@@ -7,8 +7,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import  productAPI  from './features/product/productAPI';
-import { useFetchProductsQuery } from './features/product/productAPI';
+import { useFetchProductsQuery } from '../../redux/features/products/productAPI';
+
 
 
 // import required modules
