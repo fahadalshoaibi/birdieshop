@@ -8,6 +8,7 @@ import { IoCartOutline } from "react-icons/io5";
 import avatarImage from '../assets/avatar.png'
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useAuth } from '../context/AuthContext';
 const navigation = [
     { name: "Dashboard", href:"/dashboard" },
     { name: "Orders", href:"/orders" },
@@ -17,7 +18,12 @@ const navigation = [
 
 const NavBar = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const currentuser = true;
+    const {currentUser, logOut} = useAuth();
+    const handleLogOut = async() => {
+    logOut();
+    
+    }
+
     const cartItems = useSelector((state) => state.cart.cartItems);
 
 
@@ -37,10 +43,10 @@ const NavBar = () => {
             {/* right side */}
             <div className='relative flex items-center md:space-x-3 space-x-2'>
                 <div >
-                    {currentuser ? <>
+                    {currentUser ? <>
                     <button onClick={() => setIsDropdownOpen(!isDropdownOpen) }>
                         <img src={avatarImage} alt="" className={`size-7 rounded-full 
-                            ${currentuser ? 'ring-2 ring-blue-400' : ''}`}/>
+                            ${currentUser ? 'ring-2 ring-blue-400' : ''}`}/>
                     </button>
                     {/* show dropdown */}
                     {isDropdownOpen && (
@@ -53,7 +59,12 @@ const NavBar = () => {
                                     </Link>
                                 </li>
                             ))}
+                            <li>
+                                <button onClick={handleLogOut} className='block px-4 py-2 text-sm hover:bg-primary'>
+                                    Log Out
+                                </button> </li> 
                         </ul>
+
                         </div>)}
                     
                     </> : <Link to="/login"> <FaRegUser className='size-6' /></Link>
