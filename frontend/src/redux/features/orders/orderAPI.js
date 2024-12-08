@@ -1,27 +1,30 @@
-import {createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import  getBaseUrl  from '../../../utils/baseUrl';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import getBaseUrl from '../../../utils/baseUrl';
 
-
-
-const orderAPI = createApi({
- reducerPath: 'orderAPI',
-    baseQuery: fetchBaseQuery({
-        baseUrl: `${getBaseUrl()}/api/orders`,
-        credentials:'include',
+const ordersAPI = createApi({
+  reducerPath: 'ordersAPI',
+  baseQuery: fetchBaseQuery({
+    baseUrl: `${getBaseUrl()}/api/orders`,
+    credentials: 'include',
+  }),
+  tagTypes: ['Orders'],
+  endpoints: (builder) => ({
+    createOrder: builder.mutation({
+      query: (newOrder) => ({
+        url: '/',
+        method: 'POST',
+        body: newOrder,
+      }),
+      invalidatesTags: ['Orders'],
     }),
-    tagTypes: ['Orders'],
-    endpoints: (builder) => ({
-        createOrder: (builder.mutation) ({
-            query: (newOrder) => ({
-                url : '/',
-                method: 'POST',
-                body: newOrder,
-                credentials: 'include',
-                
+    getOrderByEmail: builder.query({
+      query: (email) => ({
+        url: `/email/${email}`,
+      }),
+      providesTags: ['Orders'],
+    }),
+  }),
+});
 
-        })
-    })
-    })
-})
-export const { useCreateOrderMutation } = orderAPI
-export default orderAPI
+export const { useCreateOrderMutation, useGetOrderByEmailQuery } = ordersAPI;
+export default ordersAPI;
