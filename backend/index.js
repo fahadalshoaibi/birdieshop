@@ -4,7 +4,7 @@ const port = process.env.PORT || 5000;
 const mongoose = require('mongoose');
 require('dotenv').config();
 const cors = require('cors');
-
+const 
 
 app.use(express.json());
 app.use(cors({
@@ -14,6 +14,7 @@ app.use(cors({
 
 // Correct the route definition
 app.use('/api/products', require('./src/products/Products.routes'));
+app.use('/api/orders', require('./src/orders/order.route'));
 
 async function main() {
   await mongoose.connect('mongodb+srv://fahad20032012:smartbird@products.hvj8k.mongodb.net/shop?retryWrites=true&w=majority');
