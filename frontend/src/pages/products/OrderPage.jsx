@@ -20,6 +20,11 @@ const OrderPage = () => {
                         <div key={order._id} className='bg-white p-4 rounded-lg shadow-md mb-4'>
                             <h3 className='text-lg font-semibold mb-2'>Order ID: {order._id}</h3>
                             <p className='text-gray-600 mb-2'>Total Price: ${order.totalPrice}</p>
+                            <ul className='text-gray-600 mb-2'>
+                                {order.productIds.map((product) => (
+                                    <li key={product._id}>{product.name}</li>
+                                ))}
+                            </ul>
                             <p className='text-gray-600 mb-2'>Items: {order.productIds.length}</p>
                         </div>
                     ))}
