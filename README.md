@@ -12,6 +12,7 @@ https://react-hook-form.com/get-started
 demo video:
 https://youtu.be/38HdxXJ3lLM
 i forgot to mention that firebase was used for the normal users while admin is hardcoded into db
+also we got image labeling ai to function , detects single objects with mobilenet and multiple with coco ssd, both via tensorflow
 
 difficulties faced:
 implementing AI 
