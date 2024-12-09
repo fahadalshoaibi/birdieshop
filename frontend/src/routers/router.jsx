@@ -8,6 +8,13 @@ import Checkout from '../pages/products/Checkout';
 import SingleProd from '../pages/products/SingleProd';
 import PrivateRoute from './PrivateRoute';
 import OrderPage from '../pages/products/OrderPage';
+import AdminRoute from './AdminRoute';
+import AdminLogin from '../components/AdminLogin';
+import Dashboard from '../pages/admindash/Dashboard';
+import Rdashboard from '../pages/admindash/Rdashboard';
+import ManageProducts from '../pages/admindash/manage/ManageProducts';
+import AddProduct from '../pages/admindash/addproduct/AddProduct';
+
 
 
 const router = createBrowserRouter([
@@ -49,11 +56,31 @@ const router = createBrowserRouter([
         element : <SingleProd/>,
       },
       {
-        path : "/dashboard",
-        element : <div>Dashboard</div>,
+        path : "/admin",
+        element : <AdminLogin />,
+      }
+      ,
+      {
+        path: 'dashboard',
+        element: <AdminRoute><Dashboard/></AdminRoute>,
         children: [
           {
-      }]
+            path: '',
+            element: <AdminRoute><Rdashboard/></AdminRoute>,
+          },
+          {
+            path: 'add-product',
+            element: <AdminRoute><AddProduct/></AdminRoute>,
+          },
+          {
+            path: 'edit-product/:id',
+            element: <AdminRoute><div>Edit Product</div></AdminRoute>,
+          },
+          {
+            path: 'ManageProducts',
+            element: <AdminRoute><ManageProducts/></AdminRoute>, 
+          }
+        ],
       },
     ],
   }

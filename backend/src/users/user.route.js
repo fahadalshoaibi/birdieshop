@@ -11,20 +11,20 @@ router.post("/admin", async (req, res) => {
     try {
         const admin =  await User.findOne({username});
         if(!admin) {
-            res.status(404).send({message: "Admin not found!"})
+            res.status(404).send({message: "fake admin"})
         }
         if(admin.password !== password) {
-            res.status(401).send({message: "Invalid password!"})
+            res.status(401).send({message: "remember ur password"})
         }
         
         const token =  jwt.sign(
             {id: admin._id, username: admin.username, role: admin.role}, 
             JWT_SECRET,
-            {expiresIn: "1h"}
+            {expiresIn: "1d"}
         )
 
         return res.status(200).json({
-            message: "Authentication successful",
+            message: "Authentication successful, welcome admin!",
             token: token,
             user: {
                 username: admin.username,

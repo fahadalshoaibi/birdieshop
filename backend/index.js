@@ -15,6 +15,8 @@ app.use(cors({
 app.use('/api/products', require('./src/products/Products.routes'));
 app.use('/api/orders', require('./src/orders/order.route'));
 app.use('/api/auth', require('./src/users/user.route'));
+app.use('/api/admin', require('./src/stats/admin.stats'));
+
 
 async function main() {
   await mongoose.connect('mongodb+srv://fahad20032012:smartbird@products.hvj8k.mongodb.net/shop?retryWrites=true&w=majority');
