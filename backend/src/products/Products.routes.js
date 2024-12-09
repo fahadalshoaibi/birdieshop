@@ -16,6 +16,7 @@ router.get('/:id', getProduct)
 
 router.put('/edit/:id', editProduct)
 
+
 router.delete('/delete/:id', deleteProduct)
 
 module.exports = router

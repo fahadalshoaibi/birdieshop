@@ -14,6 +14,8 @@ import Dashboard from '../pages/admindash/Dashboard';
 import Rdashboard from '../pages/admindash/Rdashboard';
 import ManageProducts from '../pages/admindash/manage/ManageProducts';
 import AddProduct from '../pages/admindash/addproduct/AddProduct';
+import UpdateProduct from '../pages/admindash/editprod/UpdateProduct';
+
 
 
 
@@ -74,7 +76,7 @@ const router = createBrowserRouter([
           },
           {
             path: 'edit-product/:id',
-            element: <AdminRoute><div>Edit Product</div></AdminRoute>,
+            element: <AdminRoute><UpdateProduct/></AdminRoute>,
           },
           {
             path: 'ManageProducts',

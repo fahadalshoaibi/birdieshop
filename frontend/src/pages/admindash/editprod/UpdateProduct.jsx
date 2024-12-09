@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useFetchProductByIdQuery, useUpdateProductMutation } from '../../../redux/features/products/productAPI';
+import { useFetchProductQuery, useUpdateProductMutation } from '../../../redux/features/products/productAPI';
 import Inputf from '../addproduct/Inputf';
 import Selectf from '../addproduct/Selectf';
 import Swal from 'sweetalert2';
@@ -11,7 +11,7 @@ import getBaseUrl from '../../../utils/baseUrl';
 const UpdateProduct = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { data: productData, isLoading, isError, refetch } = useFetchProductByIdQuery(id);
+  const { data: productData, isLoading, isError, refetch } = useFetchProductQuery(id);
   const [updateProduct] = useUpdateProductMutation();
   const { register, handleSubmit, setValue, reset } = useForm();
 
