@@ -3,19 +3,41 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { FaGoogle } from "react-icons/fa";
 import { useForm } from "react-hook-form"
+import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import { AuthProvider } from '../context/AuthContext';
+
 
 
 const Login = () => {
     const [message, setMessage] = useState(''); 
+    const {loginUser, signInGoogle} = useAuth();
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
         watch,
         formState: { errors },
       } = useForm()
-      const onSubmit = (data) => console.log(data)
-      const handleGoogleSignIn = () => {
-        console.log('Google Signin')
+      const onSubmit = async (data) => {
+        console.log(data)
+        try {
+            await loginUser(data.email, data.password);
+            alert('User Logged in Successfully , welcome to SmartBird');
+            navigate('/');  
+
+        } catch (error) {
+            setMessage('Wrong Credentials sorry :(')
+      }}
+      const handleGoogleSignIn = async() => {
+        try {
+            await signInGoogle();
+            alert('User Logged in Successfully , welcome to SmartBird');
+            navigate('/');  
+        } catch (error) {
+            setMessage('Wrong Credentials sorry :(')
+            console.log(error)
+        }
       }
   return (
     <div className='h-[calc(100vh-120px)] border flex justify-center items-center '>

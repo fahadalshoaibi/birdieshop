@@ -5,6 +5,19 @@ import Login from '../components/Login';
 import Register from '../components/Register';
 import Cart from '../pages/products/Cart';
 import Checkout from '../pages/products/Checkout';
+import SingleProd from '../pages/products/SingleProd';
+import PrivateRoute from './PrivateRoute';
+import OrderPage from '../pages/products/OrderPage';
+import AdminRoute from './AdminRoute';
+import AdminLogin from '../components/AdminLogin';
+import Dashboard from '../pages/admindash/Dashboard';
+import Rdashboard from '../pages/admindash/Rdashboard';
+import ManageProducts from '../pages/admindash/manage/ManageProducts';
+import AddProduct from '../pages/admindash/addproduct/AddProduct';
+import UpdateProduct from '../pages/admindash/editprod/UpdateProduct';
+
+
+
 
 const router = createBrowserRouter([
   {
@@ -17,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path : "/orders",
-        element : <div>Orders</div>,
+        element : <PrivateRoute><OrderPage /></PrivateRoute>,
       },
       {
         path : "/about",
@@ -38,10 +51,41 @@ const router = createBrowserRouter([
       },
       {
         path : "/checkout",
-        element : <Checkout/>,
+        element : <PrivateRoute><Checkout /></PrivateRoute>,
+      },
+      {
+        path : "/products/:id",
+        element : <SingleProd/>,
+      },
+      {
+        path : "/admin",
+        element : <AdminLogin />,
       }
+      ,
+      {
+        path: 'dashboard',
+        element: <AdminRoute><Dashboard/></AdminRoute>,
+        children: [
+          {
+            path: '',
+            element: <AdminRoute><Rdashboard/></AdminRoute>,
+          },
+          {
+            path: 'add-product',
+            element: <AdminRoute><AddProduct/></AdminRoute>,
+          },
+          {
+            path: 'edit-product/:id',
+            element: <AdminRoute><UpdateProduct/></AdminRoute>,
+          },
+          {
+            path: 'ManageProducts',
+            element: <AdminRoute><ManageProducts/></AdminRoute>, 
+          }
+        ],
+      },
     ],
-  },
+  }
 ]);
 
 export default router;

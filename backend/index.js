@@ -1,13 +1,10 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 5173;
+const port = process.env.PORT || 5000;
 const mongoose = require('mongoose');
 require('dotenv').config();
 const cors = require('cors');
-const { detectObjects } = require('./services/service.tensorflow');
-const imageRoutes = require('./routes/imageRoutes');          // For classification
-const detectRoutes = require('./routes/detectRoutes');        // For object detect
 
 
 app.use(express.json());
@@ -49,6 +46,10 @@ app.post('/api/upload', upload.single('image'), async (req, res) => {
 });
 // Correct the route definition
 app.use('/api/products', require('./src/products/Products.routes'));
+app.use('/api/orders', require('./src/orders/order.route'));
+app.use('/api/auth', require('./src/users/user.route'));
+app.use('/api/admin', require('./src/stats/admin.stats'));
+
 
 async function main() {
   await mongoose.connect('mongodb+srv://fahad20032012:smartbird@products.hvj8k.mongodb.net/shop?retryWrites=true&w=majority');
