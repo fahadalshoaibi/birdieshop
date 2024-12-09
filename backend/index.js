@@ -39,8 +39,7 @@ app.post('/api/upload', upload.single('image'), async (req, res) => {
 
       const imageBuffer = req.file.buffer;
 
-      // Call the AI function to analyze the image
-      const labels = await analyzeImage(imageBuffer);
+      const labels = await analyzeImage(imageBuffer); // calls ai to analyze the image
 
       res.status(200).json({ labels });
   } catch (error) {

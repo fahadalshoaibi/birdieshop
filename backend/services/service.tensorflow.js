@@ -39,7 +39,7 @@ const loadModel = async () => {
     }
     return model;
 };
-const preprocessingImage = (imageBuffer) => {
+const preprocessImage = (imageBuffer) => {
     if (!imageBuffer) {
         throw new Error("Invalid image buffer");
     }
