@@ -12,7 +12,7 @@ https://react-hook-form.com/get-started
 demo video:
 https://youtu.be/38HdxXJ3lLM
 i forgot to mention that firebase was used for the normal users while admin is hardcoded into db
-admin dashboard is for admin only, once admin logs in correctly, he is assigned a token for 1 day, that token is used to verify that the current user is admin
+admin dashboard is for admin only, once admin logs in correctly, heoken for 1  is assigned a tday, that token is used to verify that the current user is admin if !token, redirect to admin login page
 also we got image labeling ai to function , detects single objects with mobilenet and multiple with coco ssd, both via tensorflow
 
 difficulties faced:
