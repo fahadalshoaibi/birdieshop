@@ -1,29 +1,37 @@
 const tf = require('@tensorflow/tfjs-node');
 const cocoSsd = require('@tensorflow-models/coco-ssd');
-const labels = Object.keys(require('./imagenet_class_index.json')).reduce((acc, key) => {           // labels returns key by 2nd element
-    acc[key] = require('./imagenet_class_index.json')[key][1]; 
+
+const labels = Object.keys(require('./service.imagenet_class_index.json')).reduce((acc, key) => {
+    acc[key] = require('./service.imagenet_class_index.json')[key][1]; // Extract the label (2nd element of the array)
     return acc;
 }, {});
 
-
+let model;
 let cocoModel;
-const loadCocoSSD = async() => {
+
+// Load Coco SSD Model
+const loadCocoSsd = async () => {
     if (!cocoModel) {
-        console.log("Loading Coco SSD model...");
+        console.log('Loading Coco SSD model...');
         cocoModel = await cocoSsd.load();
-        console.log('Coco SSD model loaded');
+        console.log('Coco SSD model loaded.');
     }
     return cocoModel;
 };
+
+// Object Detection
 const detectObjects = async (imageBuffer) => {
     if (!imageBuffer) {
-        throw new Error("No image provided");
+        throw new Error('No image buffer provided for object detection');
     }
-    const cocoModel = await loadCocoSSD();
-    const imageTensor = tf.node.decodeImage(imageTensor);
+
+    const cocoModel = await loadCocoSsd();
+    const imageTensor = tf.node.decodeImage(imageBuffer);
+    const predictions = await cocoModel.detect(imageTensor, 20, 0.3);
 
     imageTensor.dispose();
-    console.log("Object detection predictions: ", predictions);
+    console.log('Object detection predictions:', predictions);
+
     return predictions.map(prediction => ({
         bbox: prediction.bbox,
         class: prediction.class,
@@ -31,7 +39,7 @@ const detectObjects = async (imageBuffer) => {
     }));
 };
 
-let model;
+// Load MobileNet Model
 const loadModel = async () => {
     if (!model) {
         model = await tf.loadGraphModel('https://www.kaggle.com/models/google/mobilenet-v2/TfJs/100-224-classification/3', { fromTFHub: true });
@@ -39,10 +47,13 @@ const loadModel = async () => {
     }
     return model;
 };
+
+// Image Preprocessing
 const preprocessImage = (imageBuffer) => {
     if (!imageBuffer) {
-        throw new Error("Invalid image buffer");
+        throw new Error('Invalid image buffer');
     }
+
     return tf.tidy(() => {
         const tensor = tf.node.decodeImage(imageBuffer)
             .resizeNearestNeighbor([224, 224]) // Resize for MobileNet
@@ -52,9 +63,11 @@ const preprocessImage = (imageBuffer) => {
         return tensor;
     });
 };
+
+// Image Classification
 const classifyImage = async (imageBuffer) => {
     if (!imageBuffer) {
-        throw new Error('No image buffer provided');
+        throw new Error('No image buffer provided for classification');
     }
 
     const model = await loadModel();

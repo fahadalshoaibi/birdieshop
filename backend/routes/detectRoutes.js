@@ -1,6 +1,6 @@
 const express = require('express');
 const multer = require('multer');
-const { detectObjects } = require('../services/tensorflow.service');
+const { detectObjects } = require('../services/service.tensorflow');
 
 const router = express.Router();
 const upload = multer(); // Middleware to handle file uploads

@@ -1,6 +1,6 @@
 const express = require('express');
 const multer = require('multer');
-const { classifyImage } = require('../services/tensorflow.service');
+const { classifyImage } = require('../services/service.tensorflow');
 
 const router = express.Router();
 const upload = multer(); // Set up multer for handling multipart/form-data

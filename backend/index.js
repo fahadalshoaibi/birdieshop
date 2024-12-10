@@ -1,11 +1,15 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5173;
 const mongoose = require('mongoose');
 require('dotenv').config();
 const cors = require('cors');
-
+const multer = require('multer');
+const upload = multer({ storage: multer.memoryStorage() });
+const imageRoutes = require('./routes/imageRoutes');
+const detectRoutes = require('./routes/detectRoutes');
+const { classifyImage } = require('./services/service.tensorflow');
 
 app.use(express.json());
 app.use(cors({
@@ -13,21 +17,9 @@ app.use(cors({
   credentials: true
 }));
 
-app.post('/api/detect', upload.single('image'), async (req, res) => {
-  try {
-      if (!req.file || !req.file.buffer) {
-          return res.status(400).send('No image file uploaded');
-      }
-
-      const predictions = await detectObjects(req.file.buffer);
-
-      res.json({ message: 'Object detection successful', predictions });
-  } catch (error) {
-      console.error('Error in detection route:', error);
-      res.status(500).send('Failed to process the image');
-  }
-});
-
+app.post('/api/classify', upload.single)
+app.post('/api/detect', upload.single)
+/*
 app.post('/api/upload', upload.single('image'), async (req, res) => {
   try {
       if (!req.file) {
@@ -36,7 +28,7 @@ app.post('/api/upload', upload.single('image'), async (req, res) => {
 
       const imageBuffer = req.file.buffer;
 
-      const labels = await analyzeImage(imageBuffer); // calls ai to analyze the image
+      const labels = await classifyImage(imageBuffer); // calls ai to analyze the image
 
       res.status(200).json({ labels });
   } catch (error) {
@@ -44,6 +36,7 @@ app.post('/api/upload', upload.single('image'), async (req, res) => {
       res.status(500).json({ message: 'Internal server error' });
   }
 });
+*/
 // Correct the route definition
 app.use('/api/products', require('./src/products/Products.routes'));
 app.use('/api/orders', require('./src/orders/order.route'));
@@ -60,7 +53,7 @@ main().catch(err => console.log(err));
 
 // Define the root route
 app.use('/api/images', imageRoutes);  // Routes for classification
-app.use('/api', detectRoutes);       // Routes for detection
+app.use('/api/detect', detectRoutes);       // Routes for detection
 app.use('/', (req, res) => {
   res.send("Welcome to the backend");
 });
