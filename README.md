@@ -1,12 +1,3 @@
-resources used: 
-https://www.mongodb.com/resources/languages/mern-stack
-https://react-icons.github.io/react-icons/
-https://redux-toolkit.js.org/tutorials/rtk-query
-https://reactrouter.com/6.28.0/start/tutorial
-https://www.freecodecamp.org/news/tag/mern
-https://www.reddit.com/r/reactjs/
-https://codesandbox.io/p/devbox/swiper-react-navigation-2k3jk3?file=%2Fsrc%2FApp.jsx
-https://react-hook-form.com/get-started
 
 
 demo video:
@@ -21,6 +12,16 @@ implementing AI
 amount of time it took, I was only familiar with javascript going into this project so learning everything that I needed took me alot of time, I was planning on adding features to add reviews and ratings but ran out of time to do so. 
 encryption was difficult, used online resources to help
 copilot has autofilled incorrect varible names multiple times leading to errors
+
+resources used: 
+https://www.mongodb.com/resources/languages/mern-stack
+https://react-icons.github.io/react-icons/
+https://redux-toolkit.js.org/tutorials/rtk-query
+https://reactrouter.com/6.28.0/start/tutorial
+https://www.freecodecamp.org/news/tag/mern
+https://www.reddit.com/r/reactjs/
+https://codesandbox.io/p/devbox/swiper-react-navigation-2k3jk3?file=%2Fsrc%2FApp.jsx
+https://react-hook-form.com/get-started
 
 
 
