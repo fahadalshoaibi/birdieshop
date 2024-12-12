@@ -17,8 +17,6 @@ app.use(cors({
   credentials: true
 }));
 
-app.post('/api/classify', upload.single)
-app.post('/api/detect', upload.single)
 /*
 app.post('/api/upload', upload.single('image'), async (req, res) => {
   try {

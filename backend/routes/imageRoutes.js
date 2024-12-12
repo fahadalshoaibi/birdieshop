@@ -8,6 +8,7 @@ const upload = multer(); // Set up multer for handling multipart/form-data
 // Endpoint to classify an image
 router.post('/classify', upload.single('image'), async (req, res) => {
     try {
+        console.log('Route hit') 
         if (!req.file || !req.file.buffer) {
             return res.status(400).json({ error: 'No image file uploaded' });
         }
