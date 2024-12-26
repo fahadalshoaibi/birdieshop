@@ -24,7 +24,6 @@ https://www.mongodb.com/resources/languages/mern-stack
 https://react-icons.github.io/react-icons/
 https://redux-toolkit.js.org/tutorials/rtk-query
 https://reactrouter.com/6.28.0/start/tutorial
-https://www.freecodecamp.org/news/tag/mern
 https://www.reddit.com/r/reactjs/
 https://codesandbox.io/p/devbox/swiper-react-navigation-2k3jk3?file=%2Fsrc%2FApp.jsx
 https://react-hook-form.com/get-started
